@@ -1,0 +1,19 @@
+{% extends 'parent.html' %}
+{% block title %}
+    <title>Library Management Suite</title>
+{% endblock title %}
+{% block main %}
+    <div class="container">
+        <form action="add" method="POST">
+            <label for="BookNo" class="form-label">Book ID</label>
+            <input type="text" name="BookNo" id="BookNo" class="form-control">
+            <label for="BookName" class="form-label">Book Name</label>
+            <input type="text" name="BookName" id="BookName" class="form-control">
+            <label for="BookAuthor" class="form-label">Author's Name</label>
+            <input type="text" name="BookAuthor" id="BookAuthor" class="form-control">
+            <label for="BookGenre" class="form-label">Book Genre</label>
+            <input type="text" name="BookGenre" id="BookGenre" class="form-control">
+            <input type="submit" class="btn btn-primary mt-3" value="Add Record">
+        </form>
+    </div>
+{% endblock main %}
