@@ -5,15 +5,15 @@
 {% block main %}
     <div class="container">
         <h2 class="my-5 text-center">Get in touch with us.</h2>
-    <form>
+    <form action="contactdetails" method="POST">
         <div class="mb-3 border p-4">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <label for="ContactEmail" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="ContactEmail" name="ContactEmail" aria-describedby="emailHelp">
+          <label for="ContactNumber" class="form-label">Password</label>
+          <input type="tel" class="form-control" id="ContactNumber" name="ContactNumber">
+          <div id="emailHelp" class="form-text mb-2">We'll never share your contact details with anyone else.</div>
+          <label for="problem" class="form-label">Your Message</label>
+          <textarea rows="3"name="problem" id="problem" class="form-control"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

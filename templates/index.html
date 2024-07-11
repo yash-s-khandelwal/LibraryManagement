@@ -4,16 +4,15 @@
 {% endblock title %}
 {% block main %}
     <div class="container">
-        <form action="add" method="POST">
-            <label for="BookNo" class="form-label">Book ID</label>
-            <input type="text" name="BookNo" id="BookNo" class="form-control">
-            <label for="BookName" class="form-label">Book Name</label>
-            <input type="text" name="BookName" id="BookName" class="form-control">
-            <label for="BookAuthor" class="form-label">Author's Name</label>
-            <input type="text" name="BookAuthor" id="BookAuthor" class="form-control">
-            <label for="BookGenre" class="form-label">Book Genre</label>
-            <input type="text" name="BookGenre" id="BookGenre" class="form-control">
-            <input type="submit" class="btn btn-primary mt-3" value="Add Record">
-        </form>
+        <h1 class="text-center mb-3">LibraryManagement Suite</h1>
+
+        <p>To use the application, set up a virtual environment with Flask and flask-sqlalchemy installed</p>
+        <p>Next launch the server by running the app.py file</p>        
+        <p>* to add a record, press the "Add a Book" button on the navbar, enter the necessary fields and click the submit button</p>
+        <p>* to see the list of all records, click on the "Show all Records" button on nav </p>
+        <p>* to update a task from the list, click the update button next to it and change necessary fields and click "Update Button"</p>
+        <p>* to delete a task from the list, click the delete button next to it</p>
+        
+        
     </div>
 {% endblock main %}

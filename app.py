@@ -20,8 +20,29 @@ class Book(database.Model):
 
     BookGenre=database.Column(database.String(100), nullable=False)
 
+class Contacted(database.Model):
+    Sno=database.Column(database.Integer, primary_key=True)
+
+    ContactEmail=database.Column(database.String(150), nullable=False)
+
+    ContactNumber= database.Column(database.String(13), nullable=False)
+
+    Message=database.Column(database.String(1000), nullable=False)
 
 
+
+@app.route('/contactdetails', methods=["GET", "POST"])
+def contactdetails():
+    if request.method=="POST":
+        contactEmail=request.form.get("ContactEmail")
+        contactNumber=request.form.get("ContactNumber")
+        problem=request.form.get("problem")
+
+        comment=Contacted(ContactEmail=contactEmail,ContactNumber=contactNumber, Message=problem)
+
+        database.session.add(comment)
+        database.session.commit()
+        return render_template("index.html")
 
 @app.route('/')
 def index():
@@ -83,21 +104,27 @@ def delete():
 @app.route("/update", methods=["GET", "POST"])
 def update():
     #getting for which book we have request
-    bookNo=request.args.get("BookNo")
+    book_No=request.args.get("BookNo")
 
     if request.method=="POST":
+
+        #fething new data from form
         bookNo=request.form.get("BookNo")
         bookName=request.form.get("BookName")
         bookAuthor=request.form.get("BookAuthor")
         bookGenre=request.form.get("BookGenre")
 
-        bookRecord = Book(BookNo=bookNo,BookName=bookName,BookAuthor=bookAuthor,BookGenre=bookGenre)
-        print(bookNo)
+        #fetching old data from db
+        bookRecord=Book.query.filter_by(BookNo=bookNo).first()
+        bookRecord.BookName=bookName
+        bookRecord.BookAuthor=bookAuthor
+        bookRecord.BookGenregit=bookGenre
+
         database.session.add(bookRecord)
         database.session.commit()
         return redirect("/records")
 
-    currentBook=Book.query.filter_by(BookNo=bookNo).first()
+    currentBook=Book.query.filter_by(BookNo=book_No).first()
     return render_template("update.html", currentBook=currentBook)
 
 
