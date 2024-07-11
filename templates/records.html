@@ -1,0 +1,35 @@
+{% extends 'parent.html' %}
+{% block title %}
+    <title>All Records</title>
+{% endblock title %}
+
+{% block main %}
+    <h1 class="my-5 text-center">List of Books in the Library</h1>  
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Book ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author's Name</th>
+            <th scope="col">Genre</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in allBooks %}
+            <tr>
+              <td>{{Book.BookNo}}</td>
+              <td>{{book.BookName}}</td>
+              <td>{{book.BookAuthor}}</td>
+              <td>{{book.BookGenre}}</td>
+              <td>
+                  <a href="/update?BookNo={{book.BookNo}}" class="btn btn-primary">Update</a>
+                  <a href="/delete?BookNo={{book.BookNo}}" class="btn btn-secondary">Delete</a>
+              </td>
+            </tr>   
+          {% endfor %}
+      
+        </tbody>
+      </table>
+
+{% endblock main %}

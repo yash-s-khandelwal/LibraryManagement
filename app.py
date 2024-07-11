@@ -38,6 +38,15 @@ def contact():
 def about():
     return render_template('about.html')
 
+@app.route("/addBook")
+def addBook():
+    return render_template("addBook.html")
+
+@app.route("/records")
+def records():
+    return render_template("records.html")
+
+
 @app.route("/add", methods=['GET','POST'])
 def add():
     if request.method=="POST":
