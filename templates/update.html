@@ -1,0 +1,23 @@
+{% extends 'parent.html' %}
+{% block title %}
+    <title>Update Records</title>
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+    <h1 class="mt-5 text-center">Update This Record</h1>
+    <div id="UpdateHelp" class="form-text text-center mb-3">Changes you make here will be reflected in the records</div>
+
+    <form class="border p-4" action="update?BookNo={{currentBook.BookNo}}" method="POST">
+        <label for="BookNo" class="form-label">Book ID</label>
+        <input type="text" name="BookNo" id="BookNo" class="form-control" value="{{currentBook.BookNo}}" hidden>
+        <label for="BookName" class="form-label">Book Name</label>
+        <input type="text" name="BookName" id="BookName" class="form-control" value="{{currentBook.BookName}}">
+        <label for="BookAuthor" class="form-label">Author's Name</label>
+        <input type="text" name="BookAuthor" id="BookAuthor" class="form-control" value="{{currentBook.BookAuthor}}">
+        <label for="BookGenre" class="form-label">Book Genre</label>
+        <input type="text" name="BookGenre" id="BookGenre" class="form-control" value="{{currentBook.BookGenre}}">
+        <input type="submit" class="btn btn-primary mt-3" value="Update Record">
+    </form>
+</div>
+{% endblock main %}

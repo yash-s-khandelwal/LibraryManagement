@@ -5,7 +5,7 @@
 
 {% block main %}
     <h1 class="my-5 text-center">List of Books in the Library</h1>  
-    
+    <div class="container">
     <table class="table">
         <thead>
           <tr>
@@ -18,7 +18,7 @@
         <tbody>
           {% for book in allBooks %}
             <tr>
-              <td>{{Book.BookNo}}</td>
+              <td>{{book.BookNo}}</td>
               <td>{{book.BookName}}</td>
               <td>{{book.BookAuthor}}</td>
               <td>{{book.BookGenre}}</td>
@@ -31,5 +31,6 @@
       
         </tbody>
       </table>
+    </div>
 
 {% endblock main %}
